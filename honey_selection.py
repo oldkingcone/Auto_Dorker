@@ -10,7 +10,7 @@ import re
 import os
 
 sql_stmt = '''CREATE TABLE IF NOT EXISTS dork_bin(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-		date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, full_url TEXT, honey_pot TEXT, is_alive TEXT)'''
+		date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, full_url TEXT, honey_pot TEXT, is_alive TEXT, cms TEXT, shodan_url TEXT, pot_or_not_url TEXT)'''
 insert = "INSERT INTO dork_bin(full_url, honey_pot) VALUES (?, ?)"
 alive_check = 'UPDATE dork_bin SET is_alive = ? WHERE full_url = ?'
 honeypot = []
