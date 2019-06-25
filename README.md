@@ -4,6 +4,8 @@ Pure python based google auto dorker, it works dynamically(meaning that you can 
 ## Honey pot linting
 Is done through honey_bot, this assumes that any "website" that does not have a FQDN(fully qualified domain name) is a honey pot, calculated through a regex. Once the honey pot has been identified, it is then saved in the database with a true or false value. The crawler then tries to crawl the suspected honey pot looking for specific tags (that can be specified by the user) to test whether or not the honeypot is alive or not. Decision tree for that, is attempt to open the supplied URL, if there is a `timeout error`, `maxretries error`, or an error based upon the connection, the url is then marked as dead and can be tested further to see if it is alive or not later.
 
+- In order to get the full effect of this script, you need to run both scripts seperately.
+
 ## Install
 
 `pip3 install -r requirements.txt`
