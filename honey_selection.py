@@ -31,13 +31,12 @@ def progress_bar(duration):
 		sleep(1)
 		continue
 
-
 def crawl_for_honey(url):
 	try:
 		print(f'\nStarting crawl on {url}\n')
-		to_search = ['div', '<---', '<!', 'h1']
-		req = PoolManager(num_pools=20)
-		http = req.urlopen('GET', url)
+		to_search = ['div', '---', '!', 'h1']
+		req = PoolManager(num_pools=5)
+		http = req.urlopen('GET', url, timeout=10)
 		soup = BeautifulSoup(http.data, "html.parser")
 		for item in to_search:
 			print(f'Selecting: {item}')
@@ -46,8 +45,10 @@ def crawl_for_honey(url):
 			x.execute(alive_check, ('Alive', url))
 			c.commit()
 		http.close()
-	except:
-		cprint(f"Appears to be a dead url: {url}", "red", attrs=["bold", "underline", "dark"])
+	except (exceptions.ConnectionError, exceptions.ConnectTimeoutError,exceptions.MaxRetryError,
+	        exceptions.ReadTimeoutError, timeout) as e:
+		cprint(f"\n{e}", "red", "on_white", attrs=["bold", "underline", "dark"])
+		cprint(f"\nAppears to be a dead url: {url}", "red", "on_white", attrs=["bold", "underline", "dark"])
 		x.execute(alive_check, ('Dead', url))
 		c.commit()
 		pass
