@@ -10,7 +10,7 @@ import re
 import os
 
 sql_stmt = '''CREATE TABLE IF NOT EXISTS dork_bin(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-		date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, full_url TEXT, honey_pot TEXT, is_alive TEXT, cms TEXT, shodan_url TEXT, pot_or_not_url TEXT)'''
+		date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, full_url TEXT, honey_pot TEXT, is_alive TEXT, cms TEXT, shodan_url TEXT, pot_or_not_url TEXT, type_query TEXT, no_touch INTEGER)'''
 insert = "INSERT INTO dork_bin(full_url, honey_pot) VALUES (?, ?)"
 alive_check = 'UPDATE dork_bin SET is_alive = ? WHERE full_url = ?'
 honeypot = []
@@ -24,6 +24,7 @@ select = x.execute("SELECT full_url FROM dork_bin WHERE honey_pot LIKE 'True' AN
 c.commit()
 data_path = ''
 fin_dir = ''
+header = {'User-Agent': "honey-bot-1.0 AKA HoneyBee"}
 
 
 def progress_bar(duration):
@@ -36,7 +37,7 @@ def crawl_for_honey(url):
 		print(f'\nStarting crawl on {url}\n')
 		to_search = ['div', '---', '!', 'h1']
 		req = PoolManager(num_pools=5)
-		http = req.urlopen('GET', url, timeout=10)
+		http = req.urlopen('GET', url, timeout=10, headers=header)
 		soup = BeautifulSoup(http.data, "html.parser")
 		for item in to_search:
 			print(f'Selecting: {item}')
