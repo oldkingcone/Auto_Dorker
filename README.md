@@ -16,6 +16,7 @@ Is done through honey_bot, this assumes that any "website" that does not have a 
 ## Up coming features.
 ~~I will be adding in a regex to detect and eliminate honeypots from entering the results.~~
   - Thank you murph.
+  ---
   
   If you have seen this User Agent in your logs:
  
