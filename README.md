@@ -17,7 +17,6 @@ Is done through honey_bot, this assumes that any "website" that does not have a 
 ~~I will be adding in a regex to detect and eliminate honeypots from entering the results.~~
   - Thank you murph.
   
-  ## User-agent string: _HoneyBot-1.0(https://github.com/oldkingcone/Auto_Dorker)/I am doing research this is not malicious._
-  If you have seen this useragent in your logs, and are wondering how I came across your website, feel free to open an issue and I will try to respond in a timely manner, letting you know how your site was discovered/what resource made it into my database.
+  If you have seen this useragent in your logs: `User-agent string: _HoneyBot-1.0(https://github.com/oldkingcone/Auto_Dorker)/I am doing research this is not malicious.` and are wondering how I came across your website, feel free to open an issue and I will try to respond in a timely manner, letting you know how your site was discovered/what resource made it into my database.
   
 
