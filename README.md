@@ -22,6 +22,6 @@ Is done through honey_bot, this assumes that any "website" that does not have a 
  
  `User Agent: HoneyBot-1.0(https://github.com/oldkingcone/Auto_Dorker)/I am doing research this is not malicious.` 
  
- And are wondering how I came across your website, feel free to open an issue and I will try to respond in a timely manner, letting you know how your site was discovered/what resource made it into my database.
+ And are wondering how I came across your website, feel free to open an issue and I will try to respond in a timely manner, letting you know how your site was discovered/what resource made it into my database. This was most likely from my java version of this.
   
 
